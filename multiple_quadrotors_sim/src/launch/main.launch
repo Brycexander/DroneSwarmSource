@@ -1,0 +1,9 @@
+<launch>
+
+  <!-- start world -->
+  <node name="gazebo" pkg="gazebo_ros" type="gazebo"
+   args="$(find hector_gazebo_worlds)/worlds/willow_garage.world" respawn="false" output="screen" />
+
+  <!-- include our robots -->
+  <include file="$(find multiple_quadrotors_sim)/src/launch/robots.launch"/>
+</launch>

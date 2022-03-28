@@ -1,14 +1,15 @@
 <launch>
-  <arg name="scan_topic"  default="/scan" />
-  <arg name="base_frame"  default="base_footprint"/>
-  <arg name="odom_frame"  default="world"/>
-
-  <node pkg="gmapping" type="slam_gmapping" name="slam_gmapping" output="screen">
+<!-- http://wiki.ros.org/gmapping -->
+  <arg name="scan_topic" default="/uav2/scan" />
+  <arg name="base_frame" default="uav2/base_footprint"/>
+  <arg name="odom_frame" default="world"/>
+ 
+   <node pkg="gmapping" type="slam_gmapping" name="slam_gmapping2" output="screen">
     <param name="base_frame" value="$(arg base_frame)"/>
     <param name="odom_frame" value="$(arg odom_frame)"/>
     <param name="map_update_interval" value="5.0"/>
-    <param name="maxUrange" value="30.0"/>
-    <param name="maxRange" value="60.0"/>
+    <param name="maxUrange" value="6.0"/>
+    <param name="maxRange" value="8.0"/>
     <param name="sigma" value="0.05"/>
     <param name="kernelSize" value="1"/>
     <param name="lstep" value="0.05"/>
@@ -45,5 +46,7 @@
     <param name="lasamplerange" value="0.005"/>
     <param name="lasamplestep" value="0.005"/>
     <remap from="scan" to="$(arg scan_topic)"/>
+    <remap from="map" to="/uav2/map"/>
+    <remap from="map_metadata" to="/uav2/metadata"/>
   </node>
 </launch>

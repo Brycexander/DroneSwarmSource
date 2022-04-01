@@ -2,7 +2,7 @@
 <group ns="uav2">
 <node pkg="explore_lite" type="explore" respawn="false" name="explore2" output="screen">
   <param name="robot_base_frame" value="/uav2/base_footprint"/>
-  <param name="costmap_topic" value="uav2/map"/>
+  <param name="costmap_topic" value="/uav2/move_base2/global_costmap/costmap"/>
   <param name="costmap_updates_topic" value="map_updates"/>
   <param name="visualize" value="true"/>
   <param name="planner_frequency" value="0.33"/>

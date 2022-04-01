@@ -7,22 +7,23 @@
   <!--<include file="$(find quadrotor_navigation)/launch/quadrotor_localization.launch"/>-->
 
   <!--<arg name="odom_frame_id"   default="world"/>-->
-  <arg name="odom_frame_id"   default="world"/>
+  <arg name="odom_frame_id"   default="uav2/world"/>
   <arg name="base_frame_id"   default="uav2/base_footprint"/>
   <arg name="global_frame_id" default="map"/>
   <arg name="odom_topic" default="/uav2/ground_truth/state"/>
   <arg name="laser_topic" default="/uav2/scan" />
-  <arg name="custom_param_file" default="$(find quadrotor_navigation)/param/dummy.yaml"/>
+  <arg name="custom_param_file" default="$(find quadrotor_navigation)/param2/dummy.yaml"/>
 
+<group ns="uav2">
   <node pkg="move_base" type="move_base" respawn="false" name="move_base2" output="screen">
-    <rosparam file="$(find quadrotor_navigation)/param/costmap_common_params.yaml" command="load" ns="global_costmap" />
-    <rosparam file="$(find quadrotor_navigation)/param/costmap_common_params.yaml" command="load" ns="local_costmap" />
-    <rosparam file="$(find quadrotor_navigation)/param/local_costmap_params.yaml" command="load" />
-    <rosparam file="$(find quadrotor_navigation)/param/global_costmap_params.yaml" command="load" />
-    <rosparam file="$(find quadrotor_navigation)/param/dwa_local_planner_params.yaml" command="load" />
-    <rosparam file="$(find quadrotor_navigation)/param/move_base_params.yaml" command="load" />
-    <rosparam file="$(find quadrotor_navigation)/param/global_planner_params.yaml" command="load" />
-    <rosparam file="$(find quadrotor_navigation)/param/navfn_global_planner_params.yaml" command="load" />
+    <rosparam file="$(find quadrotor_navigation)/param2/costmap_common_params.yaml" command="load" ns="global_costmap" />
+    <rosparam file="$(find quadrotor_navigation)/param2/costmap_common_params.yaml" command="load" ns="local_costmap" />
+    <rosparam file="$(find quadrotor_navigation)/param2/local_costmap_params.yaml" command="load" />
+    <rosparam file="$(find quadrotor_navigation)/param2/global_costmap_params.yaml" command="load" />
+    <rosparam file="$(find quadrotor_navigation)/param2/dwa_local_planner_params.yaml" command="load" />
+    <rosparam file="$(find quadrotor_navigation)/param2/move_base_params.yaml" command="load" />
+    <rosparam file="$(find quadrotor_navigation)/param2/global_planner_params.yaml" command="load" />
+    <rosparam file="$(find quadrotor_navigation)/param2/navfn_global_planner_params.yaml" command="load" />
     <!-- external params file that could be loaded into the move_base namespace -->
     <rosparam file="$(arg custom_param_file)" command="load" />
 
@@ -81,6 +82,6 @@
     <remap from="/move_base/status"                                                to="/uav2/move_base/status" />
     <remap from="/move_base_simple/goal"                                           to="/uav2/move_base_simple/goal" />
   </node>
-
+  </group>
 
 </launch>

@@ -6,4 +6,6 @@
 
   <!-- include our robots -->
   <include file="$(find multiple_quadrotors_sim)/src/launch/robots.launch"/>
+
+  <include file="$(find takeoff_land)/launch/takeoff_land.launch"/>
 </launch>

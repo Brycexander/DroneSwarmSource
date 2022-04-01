@@ -6,13 +6,13 @@
   <include file="$(find hector_gazebo_worlds)/launch/rolling_landscape_120m.launch"/>
    
   <!-- spawning multiple quadrotors -->
-  <include file="$(find hector_quadrotor_gazebo)/launch/spawn_multiple.launch" >
-  </include>
+  <!-- <include file="$(find hector_quadrotor_gazebo)/launch/spawn_multiple.launch" >
+  </include> -->
 
   <!-- spawning just a single quadrotor-->
-  <!-- <include file="$(find hector_quadrotor_gazebo)/launch/spawn_quadrotor.launch" >
+  <include file="$(find hector_quadrotor_gazebo)/launch/spawn_quadrotor.launch" >
     <arg name="model" value="$(find hector_quadrotor_description)/urdf/quadrotor_hokuyo_utm30lx.gazebo.xacro"/> 
-  </include> -->
+  </include>
   
   <include file="$(find takeoff_land)/launch/takeoff_land.launch"/>
 

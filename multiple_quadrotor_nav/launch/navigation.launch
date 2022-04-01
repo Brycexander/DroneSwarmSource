@@ -1,11 +1,9 @@
 <launch>
 
   <!-- Map server -->
-  <!-- <arg name="map_file" default="$(find multiple_quadrotor_nav)/maps/quad_map.yaml"/>
-  <node name="map_server" pkg="map_server" type="map_server" args="$(arg map_file)" /> -->
-
-
-   <!-- <param name="frame_id" value="/map" /> -->
+  <!--<arg name="map_file" default="$(find multiple_quadrotor_nav)/maps/quad_map.yaml"/>
+  <node name="map_server" pkg="map_server" type="map_server" args="$(arg map_file)" />
+   <param name="frame_id" value="map" />-->
 
  <!-- Properties of each robot      -->
     
@@ -20,9 +18,11 @@
     <include file="$(find multiple_quadrotor_nav)/launch/move_base_2.launch" />   
 
     
+  <include file="$(find takeoff_land)/launch/takeoff_land_uav1.launch"/>
+  <include file="$(find takeoff_land)/launch/takeoff_land_uav2.launch"/>
 
 <!-- Launching Rviz      -->
 
-  <node name="rviz" pkg="rviz" type="rviz" />
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find multiple_quadrotor_nav)/rviz/config.rviz"/>
 
 </launch>

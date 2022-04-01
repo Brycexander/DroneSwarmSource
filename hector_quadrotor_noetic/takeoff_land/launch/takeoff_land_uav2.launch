@@ -1,0 +1,6 @@
+<launch>
+
+    <node pkg="takeoff_land" type="takeoff_land_code_uav2.py" name="takeoff_land_uav2" output="screen">
+    </node>
+    
+</launch>
